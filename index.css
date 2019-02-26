@@ -1,0 +1,189 @@
+body * {
+	box-sizing: border-box;
+	font-family: Archivo;
+}
+
+html, body {
+	height: 100%;
+}
+
+html {
+  background: url('https://www.ballparksofbaseball.com/wp-content/uploads/2016/03/fenway17952.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#container {
+	height: 100%;
+}
+
+h1, h2 {
+	color: #0c2735;
+	background-color: rgba(255, 255, 255, .4);
+	text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+#start-page {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+button {
+	display: block;
+	min-height: 80px;
+	min-width: 80px;
+	margin-bottom: 1.5em;
+	font-size: 2em;
+	border: none;
+	background-color: red;
+	color: #ffedfc;
+	border-radius: 5px;
+	padding: .5em 1em;
+	width: 60%;
+	max-width: 200px;
+}
+
+button:hover {
+	background-color: green;
+	cursor: pointer;
+}
+
+#question-page {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#question {
+	margin: 0;
+	background-color: rgba(255, 255, 255, .8);
+}
+
+form {
+  background-color: rgba(255, 255, 255, .4);
+}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 0 10%;
+	min-height: 500px;
+	border: none;
+}
+
+label {
+	margin-bottom: 1em;
+	font-size: 1.5em;
+}
+
+.answer {
+	width: 1.1em;
+	height: 1.1em;
+	vertical-align: middle;
+}
+
+#js-submit-button {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0;
+}
+
+#status-bar {
+  background-color: rgba(255, 255, 255, .4);
+}
+
+#question-count, #score-count {
+	display: inline-block;
+	font-size: 1.6em;
+}
+
+#score-count {
+	float: right;
+}
+
+.feedback-page {
+	display: flex;
+	flex-direction: column;
+
+}
+
+#js-next-button {
+	margin: 1em auto;
+}
+
+#js-restart-button {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	top: 10em;
+}
+
+@media only screen and (min-width: 360px) {
+	#question-count, #score-count {
+		display: inline-block;
+		font-size: 1.8em;
+		margin: 0 .6em .6em;
+	}
+
+	#score-count {
+		float: right;
+	}	
+
+	h2 {
+	font-size: 2em;
+	margin-top: 3em;
+	}
+
+	label {
+		margin-bottom: 2em;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+	.feedback-page img {
+		display: block;
+		width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.feedback-page h2 {
+		width: 650px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0;
+	}
+
+	form {
+		padding: 4em 7em 0;
+	}
+
+	#question-count {
+		padding-left: 8em;
+		padding-bottom: 2.5em;
+	}
+
+	#score-count {
+		padding-right: 8em;
+		padding-bottom: 2.5em;
+	}
+}
