@@ -103,8 +103,6 @@ let questionNum = 1;
 
 let correctAnswers = 0;
 
-// test commit
-
 const correctFeedback = `
   <main class="feedback-page" role="main">
     <h2>Correct!</h2>
