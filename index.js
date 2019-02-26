@@ -103,9 +103,17 @@ let questionNum = 1;
 
 let correctAnswers = 0;
 
+const correctFeedback = `
+  <main class="feedback-page" role="main">
+    <h2>Correct!</h2>
+    <img src="https://media.giphy.com/media/BJJH3HK2cPWpy/giphy.gif" alt="Homerun">
+    <button id="js-next-button">Next</button>
+  </main>
+`;
+
 function questionTemplate(correctAnswers, question, questionsAnswered) {
   return `
-    <section id="question-page" role="main">
+    <main id="question-page" role="main">
     <h2 id="question">${question.text}</h2>
     
     <form>
@@ -138,19 +146,19 @@ function questionTemplate(correctAnswers, question, questionsAnswered) {
       <span id="question-count">Question: ${question.number}/10</span>
       <span id="score-count">Score: ${correctAnswers}/${questionsAnswered}</span>
     </div>
-  </section>
+  </main>
   `;
 }
 
 function handleStartButton() {
-  $('#js-start-button').click(function(event) {
+  $('#js-start-button').click(function() {
     nextQuestion();
   });
 }
 
 function handleSubmitButton() {
   $('#container').on('click', '#js-submit-button', function(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     const answer = $('input:checked').siblings('span');
 
@@ -164,19 +172,19 @@ function handleSubmitButton() {
 }
 
 function handleNextButton() {
-  $('#container').on('click', '#js-next-button', function(event) {
+  $('#container').on('click', '#js-next-button', function() {
 
     if(questionNum === 10) {
       createResultsPage(correctAnswers);
     } else {
-      iterateQuestion();
+      incrementQuestion();
       nextQuestion();
-  }
+    }
   });
 }
 
 function handleRestartButton() {
-  $('#container').on('click', '#js-restart-button', function(event) {
+  $('#container').on('click', '#js-restart-button', function() {
 
     questionNum = 1;
 
@@ -205,45 +213,37 @@ function checkUserAnswer(answer) {
 
 function generateCorrectFeedback() {
   $('#container').html(correctFeedback);
-  iterateCorrectAnswers();
+  incrementCorrectAnswers();
 }
-
-const correctFeedback = `
-  <section class="feedback-page" role="main">
-    <h2>Correct!</h2>
-    <img src="https://media.giphy.com/media/BJJH3HK2cPWpy/giphy.gif" alt="Homerun">
-    <button id="js-next-button">Next</button>
-  </section>
-`;
 
 function generateIncorrectFeedback() {
-  $('#container').html(incorrectFeedbackTemplate(questionNum));
+  $('#container').html(incorrectFeedback(questionNum));
 }
 
-function incorrectFeedbackTemplate(questionNum) {
+function incorrectFeedback(questionNum) {
   return `
-    <section class="feedback-page" role="main">
+    <main class="feedback-page" role="main">
       <h2>Nope! It was ${ANSWERS[questionNum - 1]}!</h2>
       <img src="https://media.giphy.com/media/iEQWZ7LxibbwI/giphy.gif" alt="Strikeout">
       <button id="js-next-button">Next</button>
-    </section>
+    </main>
 `;
 }
 
-function iterateQuestion() {
+function incrementQuestion() {
   questionNum++;
 }
 
-function iterateCorrectAnswers() {
+function incrementCorrectAnswers() {
   correctAnswers++;
 }
 
 function createResultsPage(correctAnswers) {
   $('#container').html(`
-    <section id="final-page">
+    <main id="final-page" role="main">
       <h2>Final Score: ${correctAnswers} out of 10</h2>
       <button id="js-restart-button">Play Again?</button>
-    </section>
+    </main>
   `);
 }
 
